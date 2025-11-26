@@ -1,214 +1,123 @@
+# 🐄 Milk Yield Forecasting — Dairy Production Analytics
 
-🥛 Milk Yield Forecasting – Data Science for Dairy Production
-📌 Overview
+A full end-to-end data analysis and forecasting project using **5+ years** of real dairy farm records.  
+The goal is to analyze daily cow performance, detect anomalies, and forecast future milk yield using statistical and machine-learning models.
 
-This project applies data science, time-series forecasting, and anomaly detection to real dairy farm production data collected daily over 5 years.
+---
 
-It analyzes:
+## 📌 Project Overview
+This project processes and models:
+- Daily milk yield per cow  
+- Total herd production  
+- Milking sessions (Morning / Midday / Evening)  
+- Breeding and pregnancy cycles  
+- Health events  
+- Sudden milk-yield drops  
 
-Milk yield per cow (Morning / Midday / Evening sessions)
+The project is built to support:
+- Yield forecasting (7-day & 30-day)
+- Seasonality & trend detection  
+- Cow performance evaluation  
+- Feed optimization  
+- Anomaly detection for early illness detection  
+- Operational & economic planning in dairy farming  
 
-Total herd production
+---
 
-Health events
+## 🗂 Project Structure
 
-Breeding cycles
-
-Pregnancy stages
-
-Yield drops
-
-Operational patterns
-
-The goal is to:
-
-Forecast production
-
-Detect anomalies (sudden drops)
-
-Support farm decision-making
-
-Improve feeding schedules
-
-Increase operational efficiency
-
-This real-world dataset showcases applied data science in agriculture, combining domain expertise + technical skills.
-
-🗂 Project Structure
+```
 milk-yield-forecasting/
 │
-├── data/                # Raw CSV files (daily cow records)
-├── notebooks/           # Jupyter notebooks (analysis, forecasting, anomalies)
-├── src/                 # Python scripts (cleaning, loading, utilities)
-├── outputs/             # Forecast plots, anomaly visuals, charts
-├── setup.sh             # Setup script for environment
-├── README.md            # Project documentation
-└── requirements.txt     # Python dependencies
+├── data/                # All raw CSV data files
+├── notebooks/           # Jupyter notebooks for analysis & modeling
+├── outputs/             # Plots, charts, model outputs
+├── src/                 # Python scripts (data cleaning, utils)
+│    └── __init__.py
+│
+├── setup.sh             # Script to set up your environment
+└── README.md            # Project documentation
+```
 
-🔧 Tools & Technologies
-Languages
+---
 
-Python 3.10+
+## 🛠 Tools & Technologies
 
-Libraries
+### **Languages & Libraries**
+- Python  
+  - pandas  
+  - numpy  
+  - matplotlib  
+  - statsmodels  
+  - scikit-learn  
+  - prophet (optional)
 
-pandas
+### **Software**
+- VS Code  
+- Git & GitHub  
+- Virtual environments (venv)  
 
-numpy
+---
 
-matplotlib / seaborn
+## 📈 Methods Used
+1. **Data Cleaning & Validation**  
+2. **Date repairing (fixing +AC0- encoded issues)**  
+3. **Daily aggregation per cow & total herd**  
+4. **Time-series modeling (ARIMA / SARIMAX / Prophet)**  
+5. **7-day & 30-day forecasting**  
+6. **Cow-level performance analytics**  
+7. **Anomaly detection for sudden yield drops**  
 
-statsmodels (ARIMA/SARIMAX)
+---
 
-scikit-learn
+## 🚀 Running the Project
 
-prophet (optional)
+### **Step 1 — Run the setup script**
+This creates a virtual environment and installs all required libraries.
 
-Environment
+```bash
+bash setup.sh
+source venv/bin/activate
+```
 
-VS Code
+### **Step 2 — Open VS Code**
+```bash
+code .
+```
 
-Git & GitHub
+### **Step 3 — Run the notebooks**
+All notebooks are located in:
 
-Virtualenv / venv
+```
+notebooks/
+```
 
-🧼 Data Cleaning
+Open them and run all cells to:
+- Clean the data  
+- Build the forecasting model  
+- Generate plots into `outputs/`  
 
-This project handles real-world farm data containing:
+---
 
-ASCII-encoded dates (e.g., 2025+AC0-11+AC0-18)
+## 🧪 Setup Script Explanation (setup.sh)
 
-Inconsistent column naming
+Your `setup.sh` does:
+1. Creates a virtual environment  
+2. Activates it  
+3. Installs all project dependencies  
 
-Missing values in milk columns
+To run it:
 
-Non-milking rows (feeding/activity logs)
+```bash
+bash setup.sh
+source venv/bin/activate
+```
 
-Cleaning steps include:
+---
 
-Decode malformed date strings
+## 👤 Author
+**Moses Martin Njuguna Gikonyo**  
+GitHub: [@witttingtorch](https://github.com/witttingtorch)
 
-Standardize column names
+---
 
-Filter milking sessions only
-
-Aggregate milk yield by day and by cow
-
-Build a complete daily time series
-
-Forward-fill missing days for forecasting
-
-📊 Analysis & Methods
-1. Exploratory Data Analysis (EDA)
-
-Daily trends
-
-Seasonal patterns
-
-Per-cow performance
-
-Production cycles tied to breeding
-
-2. Forecasting Models
-
-ARIMA
-
-SARIMAX
-
-Prophet (optional)
-
-7-day & 30-day forecasts
-
-3. Anomaly Detection
-
-Z-score flagging
-
-Rolling window deviation
-
-Sudden milk drops per cow
-
-Early health-event detection
-
-🚀 How to Run the Project
-Step 1 — Clone the repository
-git clone https://github.com/witttingtorch/milk-yield-forecasting.git
-cd milk-yield-forecasting
-
-Step 2 — Create & activate a virtual environment
-python3 -m venv venv
-source venv/bin/activate       # Mac/Linux
-venv\Scripts\activate          # Windows
-
-Step 3 — Install dependencies
-pip install -r requirements.txt
-
-Step 4 — Run the setup script (optional)
-chmod +x setup.sh
-./setup.sh
-
-
-This will:
-
-Create folder structure (if missing)
-
-Verify your Python environment
-
-Check required packages
-
-Print next steps
-
-Step 5 — Open notebooks
-jupyter notebook
-
-
-Navigate to:
-
-notebooks/milk_yield_forecasting.ipynb
-
-📈 Outputs
-
-You will find the generated plots in the outputs/ folder:
-
-Daily total yield
-
-Per-cow yield patterns
-
-Forecasted future yield
-
-Seasonal decomposition
-
-Anomaly detection charts
-
-🐄 Dataset Description
-
-Each CSV file contains:
-
-Column	Meaning
-Date	Milking date (encoded, cleaned in notebook)
-Cow_ID	Name or tag of cow
-Activity	Milking / Feeding
-Session	Morning / Midday / Evening
-Milk_Liters	Milk produced in that session
-
-Plus:
-
-Health events
-
-Pregnancy cycle stages
-
-Breeding records
-
-🎯 Future Work
-
-Feed-to-yield optimization
-
-Breeding-based yield models
-
-LSTM deep-learning forecasting
-
-Dashboard in Power BI / Tableau
-
-👤 Author
-
-Moses Martin Njuguna Gikonyo
-GitHub: @witttingtorch
